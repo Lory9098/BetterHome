@@ -1,0 +1,3 @@
+name: BHBukkit
+version: '${version}'
+main: me.nettychannell.bhbukkit.BHBukkit
