@@ -1,9 +1,12 @@
 package me.nettychannell.bhbukkit;
 
 import co.aikar.commands.PaperCommandManager;
+import it.ytnoos.loadit.Loadit;
 import lombok.Getter;
 import me.nettychannell.bhbukkit.backend.Database;
+import me.nettychannell.bhbukkit.backend.profiler.HomeProfiler;
 import me.nettychannell.bhbukkit.commands.HomeCMD;
+import me.nettychannell.bhbukkit.loadit.PlayerDataLoader;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @Getter
@@ -13,6 +16,7 @@ public final class BHBukkit extends JavaPlugin {
     private static BHBukkit instance;
 
     private Database BHDatabase;
+    private Loadit<HomeProfiler> loadit;
 
     @Override
     public void onEnable() {
@@ -26,6 +30,9 @@ public final class BHBukkit extends JavaPlugin {
                 getConfig().getString("database.username"),
                 getConfig().getString("database.password")
         );
+
+        loadit = Loadit.createInstance(this, new PlayerDataLoader(BHDatabase));
+        loadit.init();
 
         PaperCommandManager manager = new PaperCommandManager(this);
         manager.registerCommand(new HomeCMD());

@@ -40,7 +40,7 @@ public class Database {
         }
     }
 
-    public @NotNull HomeProfiler getHomeProfiler(UUID uuid) {
+    public HomeProfiler getHomeProfiler(UUID uuid) {
         String query = "SELECT * FROM homes WHERE uuid = ?";
 
         try (Connection connection = this.hikariDataSource.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -54,7 +54,7 @@ public class Database {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new HomeProfiler(uuid);
+        return null;
     }
 
     public void setHomeProfiler(HomeProfiler homeProfiler) {

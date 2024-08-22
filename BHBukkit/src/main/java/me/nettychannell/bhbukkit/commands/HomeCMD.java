@@ -6,6 +6,6 @@ import co.aikar.commands.annotation.CommandAlias;
 @CommandAlias("home|h")
 public class HomeCMD extends BaseCommand {
 
-
+    
 
 }

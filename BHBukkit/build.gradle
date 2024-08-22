@@ -27,6 +27,7 @@ dependencies {
 
     implementation 'com.zaxxer:HikariCP:5.1.0'
     implementation "co.aikar:acf-paper:0.5.1-SNAPSHOT"
+    implementation files('../libs/loadit.jar')
 }
 
 def targetJavaVersion = 8
