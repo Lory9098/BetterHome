@@ -8,6 +8,17 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/BHApi" />
+            <option value="$PROJECT_DIR$/BHBukkit" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/BHApi" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/BHApi" />
             <option value="$PROJECT_DIR$/BHBukkit" />
           </set>
         </option>
@@ -17,6 +28,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/BHApi" />
             <option value="$PROJECT_DIR$/BHBukkit" />
           </set>
         </option>

@@ -12,23 +12,10 @@ repositories {
         name = "papermc-repo"
         url = "https://repo.papermc.io/repository/maven-public/"
     }
-    maven {
-        name = "sonatype"
-        url = "https://oss.sonatype.org/content/groups/public/"
-    }
-    maven { url = "https://repo.aikar.co/content/groups/aikar/" }
 }
 
 dependencies {
     compileOnly "com.destroystokyo.paper:paper-api:1.12-R0.1-SNAPSHOT"
-
-    compileOnly 'org.projectlombok:lombok:1.18.22'
-    annotationProcessor 'org.projectlombok:lombok:1.18.22'
-
-    implementation 'com.zaxxer:HikariCP:4.0.1'
-    implementation "co.aikar:acf-paper:0.5.1-SNAPSHOT"
-    implementation files('../libs/loadit.jar')
-    implementation project(':BHApi')
 }
 
 def targetJavaVersion = 8
@@ -43,11 +30,6 @@ java {
 
 
 tasks {
-    shadowJar {
-        relocate "it.ytnoos", "me.nettychannell.bhbukkit.externals.loadit"
-
-        archiveFileName = project.name + "-" + project.version + ".jar"
-    }
     compileJava {
         options.encoding = 'UTF-8'
     }
