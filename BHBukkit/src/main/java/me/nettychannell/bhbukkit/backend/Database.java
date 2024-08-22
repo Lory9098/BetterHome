@@ -1,10 +1,10 @@
 package me.nettychannell.bhbukkit.backend;
 
-import com.sun.istack.internal.NotNull;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import me.nettychannell.bhbukkit.backend.profiler.HomeProfiler;
 import me.nettychannell.bhbukkit.serializer.ObjectSerializer;
+import org.bukkit.Bukkit;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,7 +49,7 @@ public class Database {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                return new HomeProfiler(uuid, ObjectSerializer.deserialize(resultSet.getBytes("homes")));
+                return new HomeProfiler(uuid, Bukkit.getOfflinePlayer(uuid).getName(), ObjectSerializer.deserialize(resultSet.getBytes("homes")));
             }
         } catch (Exception e) {
             e.printStackTrace();

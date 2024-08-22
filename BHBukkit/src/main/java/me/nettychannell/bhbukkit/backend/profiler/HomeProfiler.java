@@ -2,6 +2,7 @@ package me.nettychannell.bhbukkit.backend.profiler;
 
 import it.ytnoos.loadit.api.UserData;
 import lombok.Getter;
+import me.nettychannell.bhbukkit.BHBukkit;
 import org.bukkit.Location;
 
 import java.util.HashMap;
@@ -27,10 +28,14 @@ public class HomeProfiler extends UserData {
 
     public void addHome(String name, Location location) {
         homes.put(name, location);
+
+        BHBukkit.getInstance().getBHDatabase().setHomeProfilerAsync(this);
     }
 
     public void removeHome(String name) {
         homes.remove(name);
+
+        BHBukkit.getInstance().getBHDatabase().setHomeProfilerAsync(this);
     }
 
     public Location getHome(String name) {
